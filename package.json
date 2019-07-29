@@ -4,7 +4,7 @@
   "version": "0.2.3",
   "private": true,
   "scripts": {
-    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p onTag",
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p always",
     "pkg": "build -c.extraMetadata.main=app/src/index.js",
     "pkgid": "electron-builder install-app-deps",
     "electron-build": "tsc -p app-tsconfig.json",
