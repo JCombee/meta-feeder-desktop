@@ -1,7 +1,7 @@
 {
   "name": "desktop-app",
   "productName": "Meta Feeder",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": true,
   "scripts": {
     "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p always",
