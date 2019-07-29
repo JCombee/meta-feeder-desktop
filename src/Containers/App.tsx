@@ -14,6 +14,9 @@ class App extends React.Component {
 
   render(): JSX.Element {
     return (<>
+      <LCUState state="idle">
+        Hello Summoner!
+      </LCUState>
       <LCUState state="lobby">
         <ChampionSelect />
       </LCUState>
