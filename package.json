@@ -1,0 +1,76 @@
+{
+  "name": "desktop-app",
+  "productName": "Meta Feeder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js",
+    "pkg": "build -c.extraMetadata.main=app/src/index.js",
+    "pkgid": "electron-builder install-app-deps",
+    "electron-build": "tsc -p app-tsconfig.json",
+    "electron-watch": "tsc -w -p app-tsconfig.json",
+    "electron": "npm run electron-build && cross-env NODE_ENV=development electron ./app/src/index.js",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "main": "app/src/index.js",
+  "build": {
+    "compression": "store",
+    "files": [
+      "app/",
+      "frontend/",
+      "node_modules/"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "lcu-connector": "^2.1.2",
+    "electron-serve": "^0.3.0",
+    "ws": "^7.1.1"
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.2.3",
+    "@types/jest": "24.0.15",
+    "@types/node": "12.0.12",
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.4",
+    "@types/ws": "^6.0.1",
+    "electron": "^5.0.6",
+    "electron-builder": "^20.44.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": "3.5.2",
+    "cross-env": "^5.2.0"
+  }
+}
