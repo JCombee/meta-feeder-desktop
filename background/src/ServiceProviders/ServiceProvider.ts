@@ -7,10 +7,13 @@ abstract class ServiceProvider {
         this.app = app;
     }
 
-    register(): void {}
+    boot(): void {}
 
-    boot(): void {
-    }
+    activate(): void {}
+
+    ready(): void {}
+
+    windowAllClosed(): void {}
 }
 
 export default ServiceProvider;

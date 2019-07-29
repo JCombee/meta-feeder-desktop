@@ -1,10 +1,10 @@
 {
   "name": "desktop-app",
   "productName": "Meta Feeder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
-    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js",
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p onTag",
     "pkg": "build -c.extraMetadata.main=app/src/index.js",
     "pkgid": "electron-builder install-app-deps",
     "electron-build": "tsc -p app-tsconfig.json",
@@ -13,7 +13,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "help": "build --help"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,10 +53,12 @@
       "last 1 safari version"
     ]
   },
+  "repository": "https://github.com/JCombee/meta-feeder-desktop",
   "dependencies": {
     "axios": "^0.19.0",
-    "lcu-connector": "^2.1.2",
     "electron-serve": "^0.3.0",
+    "electron-updater": "^4.1.2",
+    "lcu-connector": "^2.1.2",
     "ws": "^7.1.1"
   },
   "devDependencies": {

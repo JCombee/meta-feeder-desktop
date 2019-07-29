@@ -7,7 +7,7 @@ class LCUStateServiceProvider extends ServiceProvider {
     private state: string = 'idle';
     mainWindowReply: (channel: string, state: string) => void;
 
-    boot() {
+    ready() {
         const connector: LCUConnector = this.app.make('lcu-connector');
         ipcMain.on('subscribe-lcu-state', (event: { reply: (channel: string, state: string) => void; }) => {
             this.mainWindowReply = event.reply;

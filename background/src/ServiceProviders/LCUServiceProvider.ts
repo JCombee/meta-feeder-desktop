@@ -4,7 +4,7 @@ import LCUConnector from "../ConnectionAddapter/LCUConnector";
 import LCUApi from "../ConnectionAddapter/LCUApi";
 
 class LCUServiceProvider extends ServiceProvider {
-    register() {
+    boot() {
         this.app.singleton('lcu-connector', () => {
             return new LCUConnector();
         });
@@ -38,7 +38,7 @@ class LCUServiceProvider extends ServiceProvider {
         });
     }
     
-    boot() {
+    ready() {
         const connector: LCUConnector = this.app.make('lcu-connector');
         console.log('LCU Connector Start');
         connector.start();

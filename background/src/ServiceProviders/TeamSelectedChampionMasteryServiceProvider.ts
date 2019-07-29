@@ -8,7 +8,7 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
     private state: any[] = [];
     mainWindowReply: (channel: string, state: any[]) => void;
 
-    boot() {
+    ready() {
         const connector: LCUConnector = this.app.make('lcu-connector');
 
         ipcMain.on('subscribe-team-selected-champion-mastery', (event: { reply: (channel: string, state: any[]) => void; }) => {

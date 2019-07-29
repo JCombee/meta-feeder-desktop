@@ -7,7 +7,7 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
     private state: string = 'idle';
     mainWindowReply: (channel: string, state: string) => void;
 
-    boot() {
+    ready() {
         const api: LCUApi = this.app.make('lcu-api');
         const connector: LCUConnector = this.app.make('lcu-connector');
         connector.connect(() => {
