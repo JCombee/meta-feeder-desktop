@@ -44,6 +44,8 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
 
     updateTeamMasteryServiceProvider(team: any[]) {
         const api: LCUApi = this.app.make('lcu-api');
+        api.get('/lol-summoner/v1/current-summoner').then(({data}) => {
+          const csid = data.summonerId
 
         team.forEach((summoner, index) => {
             let cid = summoner.championPickIntent;
@@ -60,7 +62,7 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
                 this.mainWindowReply('team-selected-champion-mastery', this.state);
             }).catch((error: any) => console.log('error', error));
 
-            api.get(`/lol-champions/v1/inventories/${summoner.summonerId}/champions/${cid}`).then((champion: any) => {
+            api.get(`/lol-champions/v1/inventories/${csid}/champions/${cid}`).then((champion: any) => {
                 this.state[index] = {...this.state[index], championName: champion.data.name};
                 this.mainWindowReply('team-selected-champion-mastery', this.state);
             }).catch((error: any) => console.log('error', error));
@@ -76,6 +78,7 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
         if (this.mainWindowReply) {
             this.mainWindowReply('team-selected-champion-mastery', team)
         }
+      });
     }
 }
 
