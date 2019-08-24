@@ -29,7 +29,7 @@ class LCUConnector {
         this.connector.on('disconnect', () => {
             console.log('Disctonnected from LCU');
             this.isConnected = false;
-            this.onDisconnect.forEach((callback: () => void) => callback());
+            // this.onDisconnect.forEach((callback: () => void) => callback());
         });
     }
 

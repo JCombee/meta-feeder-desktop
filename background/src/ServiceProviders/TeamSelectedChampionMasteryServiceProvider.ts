@@ -38,7 +38,7 @@ class ChampionMasteryServiceProvider extends ServiceProvider {
         
         connector.disconnect(() => {
             this.mainWindowReply = undefined;
-            this.updateTeamMasteryServiceProvider([]);
+            this.state = [];
         });
     }
 

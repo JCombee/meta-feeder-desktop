@@ -14,6 +14,10 @@ class LCUApi extends LCUClient {
         });
     }
 
+    destroy() {
+        delete this.axios;
+    }
+
     get(uri: string) {
         const url = `${this.protocol}://${this.address}:${this.port}${uri}`;
         console.log('get:', url);

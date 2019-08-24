@@ -20,7 +20,10 @@ abstract class LCU {
         this.protocol = undefined;
         this.address = undefined;
         this.port = undefined;
+        this.destroy();
     }
+
+    abstract destroy(): void;
 
     abstract initialize(): void;
 }

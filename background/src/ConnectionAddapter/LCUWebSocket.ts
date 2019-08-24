@@ -51,8 +51,7 @@ class LCUWebSocket extends LCUClient {
         });
     }
 
-    disconnect() {
-        super.disconnect();
+    destroy() {
         this.websocketIsOpen = false;
         this.webSocket = undefined;
     }
