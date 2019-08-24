@@ -11,9 +11,9 @@
     "build:react": "craco build",
     "test:react": "craco test",
     "eject:react": "react-scripts eject",
-    "build": "run-p build:*",
+    "build": "run-s build:*",
     "dev": "run-p dev:*",
-    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p always"
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && build -c.extraMetadata.main=app/src/index.js -p always"
   },
   "eslintConfig": {
     "extends": "react-app"
