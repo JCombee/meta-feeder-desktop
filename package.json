@@ -4,17 +4,16 @@
   "version": "0.2.7",
   "private": true,
   "scripts": {
-    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p always",
-    "pkg": "build -c.extraMetadata.main=app/src/index.js",
-    "pkgid": "electron-builder install-app-deps",
-    "electron-build": "tsc -p app-tsconfig.json",
-    "electron-watch": "tsc -w -p app-tsconfig.json",
-    "electron": "npm run electron-build && cross-env NODE_ENV=development electron ./app/src/index.js",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
-    "help": "build --help"
+    "dev:electron": "tsc -w -p app-tsconfig.json",
+    "build:electron": "tsc -p app-tsconfig.json",
+    "start:electron": "cross-env NODE_ENV=development electron ./app/src/index.js",
+    "dev:react": "craco start",
+    "build:react": "craco build",
+    "test:react": "craco test",
+    "eject:react": "react-scripts eject",
+    "build": "run-p build:*",
+    "dev": "run-p dev:*",
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && npm run electron-build && build -c.extraMetadata.main=app/src/index.js -p always"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -69,12 +68,13 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "@types/ws": "^6.0.1",
+    "cross-env": "^5.2.0",
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.2",
-    "cross-env": "^5.2.0"
+    "typescript": "3.5.2"
   }
 }
