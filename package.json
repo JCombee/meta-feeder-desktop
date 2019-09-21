@@ -13,7 +13,9 @@
     "eject:react": "react-scripts eject",
     "build": "run-s build:*",
     "dev": "run-p dev:*",
-    "package": "npm run build && rm -rf frontend && cp -r build frontend && build -c.extraMetadata.main=app/src/index.js -p always"
+    "package": "npm run build && rm -rf frontend && cp -r build frontend && build -c.extraMetadata.main=app/src/index.js -p always",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,19 +57,33 @@
   },
   "repository": "https://github.com/JCombee/meta-feeder-desktop",
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "@storybook/addon-a11y": "^5.1.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-notes": "^5.1.11",
+    "@storybook/addon-storysource": "^5.1.11",
+    "@storybook/addon-viewport": "^5.1.11",
+    "@types/storybook__react": "^4.0.2",
     "axios": "^0.19.0",
     "electron-serve": "^0.3.0",
     "electron-updater": "^4.1.2",
     "lcu-connector": "^2.1.2",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "react-docgen-typescript-loader": "^3.2.0",
     "ws": "^7.1.1"
   },
   "devDependencies": {
     "@craco/craco": "^5.2.3",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-links": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "@types/jest": "24.0.15",
     "@types/node": "12.0.12",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "@types/ws": "^6.0.1",
+    "awesome-typescript-loader": "^5.2.1",
     "cross-env": "^5.2.0",
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
@@ -75,6 +91,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "tailwindcss": "^1.1.2",
     "typescript": "3.5.2"
   }
 }
