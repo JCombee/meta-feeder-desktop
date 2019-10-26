@@ -1,12 +1,12 @@
 import React from 'react';
+import Window from '../Components/Window/Window';
+import SummonerCard from '../Components/Card/SummonerCard';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-yellow-200 w-full h-full">
-      <div className="container">
-        <span>Content</span>
-      </div>
-    </div>
+    <Window>
+      <SummonerCard>Test</SummonerCard>
+    </Window>
   );
 }
 
